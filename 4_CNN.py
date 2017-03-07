@@ -1,8 +1,6 @@
 # coding:utf-8
 
 import tensorflow as tf
-import matplotlib.pyplot as plt
-import numpy as np
 import tensorflow.examples.tutorials.mnist.input_data as input_data
 
 # CNN 卷积神经网络

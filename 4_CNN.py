@@ -120,5 +120,5 @@ with tf.Session() as sess:
     # 预测结果
     print sess.run(tf.argmax(pred, 1)
                    , feed_dict={x: test_xs, keep_prob: 1.})
-    # 实际结果
+    # 对照值
     print sess.run(tf.argmax(test_ys, 1))

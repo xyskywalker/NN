@@ -3,11 +3,13 @@
 import tensorflow as tf
 import tensorflow.examples.tutorials.mnist.input_data as input_data
 
+
 # CNN 卷积神经网络
 # 卷积函数
 def conv2d(img, w, b):
     # relu 启动函数，bias_add 加上偏移量
     return tf.nn.relu(tf.nn.bias_add(tf.nn.conv2d(img, w, strides=[1, 1, 1, 1], padding='SAME'), b))
+
 
 # 池化函数
 def max_pool(img, k):
@@ -18,7 +20,7 @@ mnist = input_data.read_data_sets('MNIST_data/', one_hot=True)
 
 # 相关参数
 learning_rate = 0.001
-training_iters = 100000
+training_iters = 10000
 batch_size = 128
 display_step = 10
 
@@ -106,19 +108,18 @@ with tf.Session() as sess:
             acc = sess.run(accuracy, feed_dict={x: batch_xs, y: batch_ys, keep_prob: 1.})
             # 损耗
             loss = sess.run(cost, feed_dict={x: batch_xs, y: batch_ys, keep_prob:1.})
-            print 'Iter ', step*batch_size, ', Minibatch Loss= ', '{:.6f}'.format(loss)\
-                , ', Training Accuracy= ', '{:.5f}'.format(acc)
+            print('Iter %d, Minibatch Loss = %.6f , Training Accuracy = %.5f' % (step*batch_size, loss, acc))
         step += 1
 
-    print 'Optimization Finished!'
+    print('Optimization Finished!')
     # 通过测试集的前256个图像测试
     test_xs, test_ys = mnist.test.next_batch(256)
-    print 'Testing Accuracy: '\
-        , sess.run(accuracy
+    print('Testing Accuracy: %.5f' % sess.run(accuracy
                    , feed_dict={x: test_xs, y: test_ys, keep_prob: 1.})
+          )
 
     # 预测结果
-    print sess.run(tf.argmax(pred, 1)
-                   , feed_dict={x: test_xs, keep_prob: 1.})
+    print(sess.run(tf.argmax(pred, 1)
+                   , feed_dict={x: test_xs, keep_prob: 1.}))
     # 对照值
-    print sess.run(tf.argmax(test_ys, 1))
+    print(sess.run(tf.argmax(test_ys, 1)))

@@ -1,10 +1,10 @@
 # coding:utf-8
+# CNN 卷积神经网络
 
 import tensorflow as tf
 import tensorflow.examples.tutorials.mnist.input_data as input_data
 
 
-# CNN 卷积神经网络
 # 卷积函数
 def conv2d(img, w, b):
     # relu 启动函数，bias_add 加上偏移量

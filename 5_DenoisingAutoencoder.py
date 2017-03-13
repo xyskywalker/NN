@@ -1,4 +1,5 @@
 # coding:utf-8
+# 去噪自编码器
 
 import numpy as np
 import sklearn.preprocessing as prep

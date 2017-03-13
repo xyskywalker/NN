@@ -99,6 +99,7 @@ class AdditiveGaussianNoiseAutoencoder(object):
 # 读取MNIST数据集
 mnist = input_data.read_data_sets('MNIST_data/', one_hot=True)
 
+
 # 对测试数据进行标准化处理的函数，转换成0均值，标准差为1。
 # 处理方法就是先减去均值再除以标准差。直接使用sklearn.preprocessing的StandardScaler类
 def standard_scale(X_train, X_test):
@@ -107,11 +108,13 @@ def standard_scale(X_train, X_test):
     X_test = preprocessor.transform(X_test)
     return X_train, X_test
 
+
 # 随机获取block数据，在0~(len(date)-batch_size)之间取一个随机整数座位block的起点，然后取batch_size尺寸的数据
 # 这是不放回抽样
 def get_random_block_from_data(data, batch_size):
     start_index = np.random.randint(0, len(data)-batch_size)
     return data[start_index:(start_index+batch_size)]
+
 
 # 标准化训练数据
 X_train, X_test = standard_scale(mnist.train.images, mnist.test.images)
@@ -122,12 +125,15 @@ training_epochs = 20
 batch_size = 128
 display_step = 1
 
+
 # 实例化自编码器
 autoencoder = AdditiveGaussianNoiseAutoencoder(n_input=784,
                                                n_hidden=200,
                                                transfer_function=tf.nn.softplus,
                                                optimizer=tf.train.AdamOptimizer(learning_rate=0.001),
                                                scale=0.01)
+
+
 for epoch in range(training_epochs):
     avg_cost = 0.
     total_batch = int(n_samples/batch_size)
@@ -140,3 +146,21 @@ for epoch in range(training_epochs):
         print("Epoch: %04d cost = %.9f" % ((epoch+1), avg_cost))
 
 print('Total cost: %.9f' % autoencoder.calc_total_cost(X_test))
+
+'''
+import matplotlib.pyplot as plt
+batch_xs = get_random_block_from_data(X_train, batch_size)
+image = batch_xs[1,:]
+image = np.reshape(image,[28,28])
+plt.imshow(image)
+plt.show()
+print(image)
+
+hidden = autoencoder.transform(batch_xs)
+generate = autoencoder.generate(hidden)
+image = generate[1,:]
+image = np.reshape(image,[28,28])
+plt.imshow(image)
+plt.show()
+print(image)
+'''

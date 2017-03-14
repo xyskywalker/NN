@@ -6,7 +6,9 @@
 
 ###依赖项
 * NumPy
+* pandas
 * Matplotlib
 * scikit-learn
 * MNIST数据集
 * PTB数据集
+* CIFAR-10数据集

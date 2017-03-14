@@ -40,7 +40,7 @@ _x = tf.reshape(x, shape=[-1, 28, 28, 1])
 y = tf.placeholder(tf.float32, [None, n_classes])
 
 # 第一层卷积
-# 第一层共享的卷积权重，即卷积核, 5*5大小*1颜色，*32个特征图谱
+# 第一层共享的卷积权重，即卷积核, 5*5大小*1颜色，*32个卷积数量，即特征数
 wc1 = tf.Variable(tf.random_normal([5, 5, 1, 32]))
 # 第一层共享的偏差
 bc1 = tf.Variable(tf.random_normal([32]))

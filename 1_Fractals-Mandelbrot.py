@@ -1,12 +1,8 @@
 # coding:utf-8
-
+# 分型 - Mandelbrot
 import tensorflow as tf
 import numpy as np
-import matplotlib.image as mp_image
 import matplotlib.pyplot as plt
-
-################################################
-# 分型 - Mandelbrot
 
 # 定义复平面 水平(实部)范围： -1.3~1.3 步长 0.005，垂直(虚部)范围： -2~1 步长 0.005
 Y, X = np.mgrid[-1.3:1.3:0.005, -2:1:0.005]

@@ -1,5 +1,5 @@
 # coding:utf-8
-
+# 多分类 - KMeans算法
 import tensorflow as tf
 import numpy as np
 import matplotlib.pyplot as plt

@@ -1,5 +1,5 @@
 # coding:utf-8
-
+# 部分简单的范例代码
 import tensorflow as tf
 import numpy as np
 import matplotlib.image as mp_image

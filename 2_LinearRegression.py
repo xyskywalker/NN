@@ -1,10 +1,8 @@
 # coding:utf-8
-
+# 线性回归
 import tensorflow as tf
 import numpy as np
 import matplotlib.pyplot as plt
-
-# 线性回归
 
 # 准备测试数据
 number_of_points = 500
@@ -56,5 +54,5 @@ with tf.Session() as session:
             plt.legend()
             plt.show()
 
-    print 'a = {}'.format(session.run(a_))
-    print 'b = {}'.format(session.run(b_))
+    print('a = %.8f' % session.run(a_))
+    print('b = %.8f' % session.run(b_))

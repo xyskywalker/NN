@@ -1,12 +1,8 @@
 # coding:utf-8
-
+# 分型 - Julia
 import tensorflow as tf
 import numpy as np
-import matplotlib.image as mp_image
 import matplotlib.pyplot as plt
-
-################################################
-# 分型 - Julia
 
 # 定义复平面 水平(实部)范围： -2~2 步长 0.005，垂直(虚部)范围： -2~2 步长 0.005
 Y, X = np.mgrid[-2:2:0.005, -2:2:0.005]

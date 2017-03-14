@@ -1,11 +1,8 @@
 # coding:utf-8
-
+# 解偏微分方程，池塘中的水滴
 import tensorflow as tf
 import numpy as np
-import matplotlib.image as mp_image
 import matplotlib.pyplot as plt
-
-# 偏微分方程，池塘中的水滴
 
 def make_kernel(a):
     a_ = np.asarray(a)

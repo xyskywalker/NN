@@ -1,10 +1,8 @@
 # coding:utf-8
-
+# 多层感知分类器
 import tensorflow as tf
 import matplotlib.pyplot as plt
 import tensorflow.examples.tutorials.mnist.input_data as input_data
-
-# 多层感知分类器
 
 # 读取MNIST数据集
 mnist = input_data.read_data_sets('MNIST_data/', one_hot=True)
@@ -77,15 +75,15 @@ with tf.Session() as sess:
             sess.run(optimizer, feed_dict={x: batch_xs, y: batch_ys})
             avg_cost += sess.run(cost, feed_dict={x: batch_xs, y: batch_ys})/total_batch
         if epoch % display_step == 0:
-            print 'Epoch:', '%04d' % (epoch+1), 'cost=', '{:.9f}'.format(avg_cost)
+            print('Epoch: %04d cost = %.9f' % (epoch + 1, avg_cost))
         avg_set.append(avg_cost)
         epoch_set.append(epoch+1)
-    print 'Training phase finished'
+    print('Training phase finished')
 
     # 测试模型
     correct_prediction = tf.equal(tf.argmax(output_layer, 1), tf.argmax(y, 1))
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
-    print 'Model accuracy: ', accuracy.eval({x: mnist.test.images, y: mnist.test.labels})
+    print('Model accuracy: %.9f' % accuracy.eval({x: mnist.test.images, y: mnist.test.labels}))
 
     # 显示收敛过程
     plt.plot(epoch_set,avg_set, 'o', label='MLP Training phase')

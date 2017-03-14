@@ -1,5 +1,5 @@
 # coding:utf-8
-
+# 最小近邻分类
 import tensorflow as tf
 import tensorflow.examples.tutorials.mnist.input_data as input_data
 
@@ -38,10 +38,10 @@ with tf.Session() as session:
         predictedClass = train_list_values[nn_index]
         trueClass = test_list_values[i]
 
-        print 'Test N ', i , 'Predicted Class: ', predictedClass, 'True Class: ', trueClass
+        print('Test N = %1d Predicted Class: %1d True Class: %1d'%(i, predictedClass, trueClass))
         if predictedClass == trueClass:
             accuracy += 1./len(test_pixels)
 
-    print 'Result = ' , accuracy
+    print('Result = %.2f' % accuracy)
 
 

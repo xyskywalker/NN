@@ -1,5 +1,5 @@
 # coding:utf-8
-
+# 函数拟合
 import tensorflow as tf
 import numpy as np
 import math, random
@@ -75,7 +75,7 @@ for i in range(NUM_EPOCHS):
     # cost = sess.run(tf.nn.l2_loss(model - y_validation), feed_dict={X:x_validation})
     errors.append(cost)
     if i%100 == 0:
-        print 'Epoch %d, cost = %g' % (i, cost)
+        print('Epoch %d, cost = %g' % (i, cost))
 
 y_forecast = sess.run(model, feed_dict={X: x_validation})
 

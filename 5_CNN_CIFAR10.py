@@ -7,7 +7,7 @@ import numpy as np
 import time
 import math
 
-max_steps =3000
+max_steps = 3000
 batch_size = 128
 data_dir = 'tmp/cifar-10-batches-bin'
 
@@ -98,35 +98,37 @@ top_k_op = tf.nn.in_top_k(logits, label_holder, 1)
 
 
 init = tf.global_variables_initializer()
-with tf.Session() as sess:
-    sess.run(init)
-    # 启动线程，用于图片载入操作
-    tf.train.start_queue_runners()
+sess = tf.Session()
+sess.run(init)
+# 启动线程，用于图片载入操作
+tf.train.start_queue_runners(sess=sess)
 
-    for step in range(max_steps):
-        start_time = time.time()
-        image_batch, label_batch = sess.run([images_train, labels_train])
-        _, loss_value = sess.run([train_op, loss], feed_dict={image_holder: image_batch, label_holder: label_batch})
-        duration = time.time() - start_time
-        if step%10 == 0:
-            examples_per_sec = batch_size / duration
-            sec_per_batch = float(duration)
-            print('Step %d, loss=%.2f (%.1f examples/sec; %.3f sec/batch)'
-                  % (step, loss_value, examples_per_sec, sec_per_batch))
+for step in range(max_steps):
+    start_time = time.time()
+    image_batch, label_batch = sess.run([images_train, labels_train])
+    _, loss_value = sess.run([train_op, loss], feed_dict={image_holder: image_batch, label_holder: label_batch})
+    duration = time.time() - start_time
+    if step%10 == 0:
+        examples_per_sec = batch_size / duration
+        sec_per_batch = float(duration)
+        print('Step %d, loss=%.2f (%.1f examples/sec; %.3f sec/batch)'
+              % (step, loss_value, examples_per_sec, sec_per_batch))
 
-    # 准确率测试
-    num_examples = 10000
-    num_iter = int(math.ceil(num_examples/batch_size))
-    true_count = 0
-    total_sample_count = num_iter * batch_size
-    step = 0
-    while step < num_iter:
-        image_batch, label_batch = sess.run([images_test, labels_test])
-        predictions = sess.run([top_k_op], feed_dict={image_holder: image_batch, label_holder: label_batch})
-        true_count += np.sum(predictions)
-        step += 1
-    prediction = true_count / total_sample_count
-    print('Prediction @ 1 = %.6f' % prediction)
+# 准确率测试
+num_examples = 10000
+num_iter = int(math.ceil(num_examples/batch_size))
+
+true_count = 0
+total_sample_count = num_iter * batch_size
+step = 0
+while step < num_iter:
+    image_batch, label_batch = sess.run([images_test, labels_test])
+    predictions = sess.run([top_k_op], feed_dict={image_holder: image_batch, label_holder: label_batch})
+    true_count += np.sum(predictions)
+    step += 1
+
+prediction = float(true_count) / float(total_sample_count)
+print('Prediction @ 1 = %.6f' % prediction)
 
 
 

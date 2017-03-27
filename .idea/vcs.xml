@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="VcsDirectoryMappings">
-    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../CNN_ClassicModels" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../DQN" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../RNN" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/models" vcs="Git" />
   </component>
 </project>

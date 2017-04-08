@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../CNN_ClassicModels/.idea/CNN_ClassicModels.iml" filepath="$PROJECT_DIR$/../CNN_ClassicModels/.idea/CNN_ClassicModels.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../DQN/.idea/DQN.iml" filepath="$PROJECT_DIR$/../DQN/.idea/DQN.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../RNN/.idea/RNN.iml" filepath="$PROJECT_DIR$/../RNN/.idea/RNN.iml" />
+      <module fileurl="file://C:\Users\XY\PycharmProjects\CNN_ClassicModels\.idea\CNN_ClassicModels.iml" filepath="C:\Users\XY\PycharmProjects\CNN_ClassicModels\.idea\CNN_ClassicModels.iml" />
+      <module fileurl="file://C:\Users\XY\PycharmProjects\DQN\.idea\DQN.iml" filepath="C:\Users\XY\PycharmProjects\DQN\.idea\DQN.iml" />
+      <module fileurl="file://C:\Users\XY\PycharmProjects\RNN\.idea\RNN.iml" filepath="C:\Users\XY\PycharmProjects\RNN\.idea\RNN.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Training.iml" filepath="$PROJECT_DIR$/.idea/Training.iml" />
     </modules>
   </component>

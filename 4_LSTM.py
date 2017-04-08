@@ -315,7 +315,7 @@ if __name__=='__main__':
         raise ValueError("Must set --data_path to PTB data directory")
     print(FLAGS.data_path)
 
-    raw_data = reader.ptb_raw_data(FLAGS.data_path) # 获取原始数据
+    raw_data = reader.ptb_raw_data(FLAGS.data_path)  # 获取原始数据
     train_data, valid_data, test_data, _ = raw_data
 
     config = get_config()

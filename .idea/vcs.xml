@@ -4,7 +4,8 @@
     <mapping directory="" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../CNN_ClassicModels" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../DQN" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/../RNN" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../LIDC" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/models" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../RNN" vcs="Git" />
   </component>
 </project>

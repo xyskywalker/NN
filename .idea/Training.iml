@@ -7,6 +7,7 @@
     <orderEntry type="module" module-name="CNN_ClassicModels" />
     <orderEntry type="module" module-name="RNN" />
     <orderEntry type="module" module-name="DQN" />
+    <orderEntry type="module" module-name="LIDC" />
   </component>
   <component name="TestRunnerService">
     <option name="projectConfiguration" value="Nosetests" />

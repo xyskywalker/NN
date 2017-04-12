@@ -8,7 +8,7 @@ import pandas as pd
 def display_partition(x_values,y_values,assignment_values):
     labels = []
     colors = ["red","blue","green","yellow"]
-    for i in xrange(len(assignment_values)):
+    for i in range(len(assignment_values)):
       labels.append(colors[(assignment_values[i])])
     color = labels
     df = pd.DataFrame\
@@ -29,7 +29,7 @@ x_values = []
 y_values = []
 
 # 创建训练数据
-for i in xrange(num_vectors):
+for i in range(num_vectors):
     if np.random.random() > 0.5:
         x_values.append(np.random.normal(0.4, 0.7))
         y_values.append(np.random.normal(0.2, 0.8))
@@ -38,7 +38,7 @@ for i in xrange(num_vectors):
         y_values.append(np.random.normal(0.8, 0.5))
 
 # 转换成完整的序列(使用Python内置zip函数)
-vector_values = zip(x_values, y_values)
+vector_values = list(zip(x_values, y_values))
 # 转换为tf的常数
 vectors = tf.constant(vector_values)
 
@@ -79,7 +79,7 @@ init_op = tf.global_variables_initializer()
 sess = tf.Session()
 sess.run(init_op)
 
-for step in xrange(num_steps):
+for step in range(num_steps):
    _, centroid_values, assignment_values = sess.run([update_centroids, centroids, assignments])
 
-display_partition(x_values,y_values,assignment_values)
+display_partition(x_values,y_values, assignment_values)
